@@ -191,7 +191,7 @@ input * {
 input <identifier> xkb_model "pc86"
 
 # Wallpaper
-#exec --no-startup-id feh --bg-scale /home/akarumei/.wallp.png
+#exec --no-startup-id feh --bg-scale ~/.wallp.png
 output "*" bg ~/.wallp.png fill
 # Colors
 
@@ -209,30 +209,30 @@ smart_borders on
 for_window [tiling] border pixel 2.5
 
 # Compton/Picom
-#exec --no-startup-id picom --config /home/akarumei/.config/picom/config
+#exec --no-startup-id picom --config ~/.config/picom/config
 # Touchpad buttons
 #exec --no-startup-id synclient TapButton1=1 TapButton2=3
 # Screenshot
 bindsym --to-code $mod+Print exec --no-startup-id grim -g "$(slurp)" - | wl-copy
 # Lockscreen
-#set $Locker i3lock -i /home/akarumei/.wallp.png && sleep 1
+set $Locker i3lock -i ~/.wallp.png && sleep 1
 
-#set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
-#mode "$mode_system" {
-#    bindsym --to-code l exec --no-startup-id $Locker, mode "default"
-#    bindsym --to-code e exec --no-startup-id i3-msg exit, mode "default"
-#    bindsym --to-code s exec --no-startup-id $Locker && systemctl suspend, mode "default"
-#    bindsym --to-code h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
-#    bindsym --to-code r exec --no-startup-id systemctl reboot, mode "default"
-#    bindsym --to-code Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"  
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+mode "$mode_system" {
+    bindsym --to-code l exec --no-startup-id $Locker, mode "default"
+    bindsym --to-code e exec --no-startup-id i3-msg exit, mode "default"
+    bindsym --to-code s exec --no-startup-id $Locker && systemctl suspend, mode "default"
+    bindsym --to-code h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
+    bindsym --to-code r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym --to-code Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"  
 
     # back to normal: Enter or Escape
- #   bindsym --to-code Return mode "default"
- #   bindsym --to-code Escape mode "default"
-#}
+    bindsym --to-code Return mode "default"
+    bindsym --to-code Escape mode "default"
+}
 
 bindsym --to-code $mod+Shift+s mode "$mode_system"
 
 # exec --no-startup-id xrandr --setprovideroffloadsink 1 0
 
-#exec_always --no-startup-id /home/akarumei/.config/polybar/launch.sh
+#exec_always --no-startup-id ~/.config/polybar/launch.sh
