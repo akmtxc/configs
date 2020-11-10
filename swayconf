@@ -202,11 +202,11 @@ bar {
 }
 
 # Windows
-default_border pixel
+# default_border pixel
 # smart_gaps on 
 # gaps inner 0
-smart_borders on
-for_window [tiling] border pixel 2.5
+# smart_borders on
+# for_window [tiling] border pixel 2.5
 
 # Compton/Picom
 #exec --no-startup-id picom --config ~/.config/picom/config
